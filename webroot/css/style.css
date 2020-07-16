@@ -21,10 +21,23 @@ ul {
     text-decoration: none;
   }
   
+  .nav-right{
+    float: right;
+  }
+
   li a:hover {
     background-color: #111;
   }
 
   .active{
       background-color: #4caf50;
+  }
+
+  .body{
+    padding: 20px;
+    margin-top: 60px;
+  }
+
+  h1{
+    text-align: center;
   }

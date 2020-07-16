@@ -1,6 +1,174 @@
 <ul>
-    <li><a class="active" href='#home'>Home</a></li>
-    <li><a href='#about'>About</a></li>
-    <li><a href='#server'>Server</a></li>
-    <li><a href='#social_media'>Social Media</a></li>
+    <li class="target" id="tohome"><a class="active" href='#home'>Home</a></li>
+    <li class="target" id="toabout"><a href='#about'>About</a></li>
+    <li class="target"><a href='#server'>Server</a></li>
+    <li class="target"><a href='#social_media'>Social Media</a></li>
+    <li class="nav-right"><a href='#login'>Login</a></li>
+    <li class="nav-right"><a href='#registrieren'>Registrieren</a></li>
 </ul>
+<div class="body">
+   <div id="home">
+        <h1>Home</h1>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+   </div>  
+   <div id="about">
+        <h1>About</h1>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+   </div>   
+   <div id="server">
+        <h1>Server</h1>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+   </div> 
+   <div id="social_media">
+        <h1>Social Media</h1>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+   </div>     
+</div>

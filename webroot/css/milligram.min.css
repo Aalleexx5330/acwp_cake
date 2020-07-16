@@ -350,7 +350,7 @@ input[type='checkbox'],input[type='radio']{
     }
     dl dl,dl ol,dl ul,ol dl,ol ol,ol ul,ul dl,ul ol,ul ul{
         font-size:90%;
-        margin:1.5rem 0 1.5rem 3.0rem
+        /*margin:1.5rem 0 1.5rem 3.0rem*/
     }
     ol{
         list-style:decimal inside
@@ -358,13 +358,13 @@ input[type='checkbox'],input[type='radio']{
     ul{
         list-style:none;
     }
-    .button,button,dd,dt,li{
+    .button,button,dd,dt{
         margin-bottom:1.0rem
     }
     fieldset,input,select,textarea{
         margin-bottom:1.5rem
     }
-    blockquote,dl,figure,form,ol,p,pre,table,ul{
+    blockquote,dl,figure,form,ol,p,pre,table{
         margin-bottom:0
     }
     table{
