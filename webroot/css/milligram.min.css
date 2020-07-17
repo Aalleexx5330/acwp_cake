@@ -5,7 +5,7 @@
  * Copyright (c) 2019 CJ Patoilo
  * Licensed under the MIT license
  */
-
+/*
 *,*:after,
 *:before{
     box-sizing:inherit
@@ -350,7 +350,7 @@ input[type='checkbox'],input[type='radio']{
     }
     dl dl,dl ol,dl ul,ol dl,ol ol,ol ul,ul dl,ul ol,ul ul{
         font-size:90%;
-        /*margin:1.5rem 0 1.5rem 3.0rem*/
+        margin:1.5rem 0 1.5rem 3.0rem
     }
     ol{
         list-style:decimal inside
@@ -429,8 +429,7 @@ input[type='checkbox'],input[type='radio']{
         h1,h2,h3,h4,h5,h6{
             font-weight:300;
             letter-spacing:-.1rem;
-            margin-bottom:2.0rem;
-            margin-top:0
+            margin-top:0;
         }
         h1{
             font-size:4.6rem;
@@ -471,3 +470,4 @@ input[type='checkbox'],input[type='radio']{
         .float-right{
             float:right
         }
+*/
