@@ -39,7 +39,8 @@ class UsersController extends AppController
             // redirect to /articles after login success
             $redirect = $this->request->getQuery('redirect', [
                 'controller' => 'Site',
-                'action' => 'index',   
+                'action' => 'index', 
+                  
             ]);
 
             return $this->redirect($redirect);
