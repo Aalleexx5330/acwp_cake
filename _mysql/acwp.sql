@@ -41,7 +41,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Admin','admin','admin','webmaster@acwp-community.de','$2y$10$rvvxs5JsJpvZkZ492zYvr.tldtV44fp9DR4xmGt7H1qfUl0yt/FCq','2020-07-20 09:17:00','2020-07-15 13:54:47'),(2,'Alexander','Schneider','Aalleexx5330','Bahnerch1@t-online.de','$2y$10$EgNMf1gsooilFOxut3gQiunjCFEYYapesgKs206Y6R8/iLafqTYmK','2020-07-20 08:47:54','2020-07-20 08:47:54');
+INSERT INTO `users` VALUES (1,'Admin','admin','admin','webmaster@acwp-community.de','$2y$10$rvvxs5JsJpvZkZ492zYvr.tldtV44fp9DR4xmGt7H1qfUl0yt/FCq','2020-07-20 09:17:00','2020-07-15 13:54:47'),(2,'Alexander','Schneider','Aalleexx5330','Bahnerch1@t-online.de','04As1095!?!','2020-07-20 08:47:54','2020-07-20 08:47:54');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-07-20 13:36:32
+-- Dump completed on 2020-07-20 16:56:28
