@@ -40,6 +40,7 @@ class UsersController extends AppController
             $redirect = $this->request->getQuery('redirect', [
                 'controller' => 'Site',
                 'action' => 'index',
+                
             ]);
 
             return $this->redirect($redirect);
