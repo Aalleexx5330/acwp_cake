@@ -49,7 +49,7 @@ class Application extends BaseApplication
     {
         // Call parent to load bootstrap from files.
         parent::bootstrap();
-
+        $this->addPlugin('Authentication');
         if (PHP_SAPI === 'cli') {
             $this->bootstrapCli();
         }
@@ -128,27 +128,25 @@ class Application extends BaseApplication
     public function getAuthenticationService(ServerRequestInterface $request): AuthenticationServiceInterface
     {
         $authenticationService = new AuthenticationService([
-            'unauthenticatedRedirect' => 'users/login',
+            'unauthenticatedRedirect' => '/acwp/users/login',
             'queryParam' => 'redirect',
         ]);
 
         // Load identifiers, ensure we check email and password fields
         $authenticationService->loadIdentifier('Authentication.Password', [
             'fields' => [
-                'username' => 'email',
-                'password' => 'password',
-            ]
-        ]);
+                'username' => 'username',
+                'password' => 'password',]]);
 
         // Load the authenticators, you want session first
         $authenticationService->loadAuthenticator('Authentication.Session');
         // Configure form data check to pick email and password
         $authenticationService->loadAuthenticator('Authentication.Form', [
             'fields' => [
-                'username' => 'email',
+                'username' => 'username',
                 'password' => 'password',
             ],
-            'loginUrl' => 'users/login',
+            'loginUrl' => '/acwp/users/login',
         ]);
 
         return $authenticationService;

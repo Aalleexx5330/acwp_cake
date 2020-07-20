@@ -19,6 +19,18 @@
             <h3><?= h($user->id) ?></h3>
             <table>
                 <tr>
+                    <th><?= __('Firstname') ?></th>
+                    <td><?= h($user->firstname) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Lastname') ?></th>
+                    <td><?= h($user->lastname) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Username') ?></th>
+                    <td><?= h($user->username) ?></td>
+                </tr>
+                <tr>
                     <th><?= __('Email') ?></th>
                     <td><?= h($user->email) ?></td>
                 </tr>
@@ -31,12 +43,12 @@
                     <td><?= $this->Number->format($user->id) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Created') ?></th>
-                    <td><?= h($user->created) ?></td>
-                </tr>
-                <tr>
                     <th><?= __('Modified') ?></th>
                     <td><?= h($user->modified) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Created') ?></th>
+                    <td><?= h($user->created) ?></td>
                 </tr>
             </table>
         </div>

@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 namespace App\Controller;
-
+use App\Controller\AppController;
 /**
  * Users Controller
  *
@@ -22,7 +22,33 @@ class UsersController extends AppController
 
         $this->set(compact('users'));
     }
+    public function beforeFilter(\Cake\Event\EventInterface $event)
+    {
+        parent::beforeFilter($event);
+        // Configure the login action to not require authentication, preventing
+        // the infinite redirect loop issue
+        $this->Authentication->addUnauthenticatedActions(['login','add']);
+    }
+    
+    public function login()
+    {
+        $this->request->allowMethod(['get', 'post']);
+        $result = $this->Authentication->getResult();
+        // regardless of POST or GET, redirect if user is logged in
+        if ($result->isValid()) {
+            // redirect to /articles after login success
+            $redirect = $this->request->getQuery('redirect', [
+                'controller' => 'Site',
+                'action' => 'index',
+            ]);
 
+            return $this->redirect($redirect);
+        }
+        // display error if user submitted and authentication failed
+        if ($this->request->is('post') && !$result->isValid()) {
+            $this->Flash->error(__('Invalid username or password'));
+        }
+    }
     /**
      * View method
      *
@@ -76,7 +102,7 @@ class UsersController extends AppController
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('The user has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['action' => 'site/index']);
             }
             $this->Flash->error(__('The user could not be saved. Please, try again.'));
         }
@@ -102,34 +128,13 @@ class UsersController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
-
-    public function beforeFilter(\Cake\Event\EventInterface $event)
+    public function logout()
     {
-        parent::beforeFilter($event);
-        // Configure the login action to not require authentication, preventing
-        // the infinite redirect loop issue
-        $this->Authentication->addUnauthenticatedActions(['login', 'add']);
-    }
-
-    public function login()
-    {
-        $this->request->allowMethod(['get', 'post']);
         $result = $this->Authentication->getResult();
         // regardless of POST or GET, redirect if user is logged in
-        if ($result->isValid()) 
-        {
-            // redirect to /articles after login success
-            $redirect = $this->request->getQuery('redirect', [
-                'controller' => 'acwp/site',
-                'action' => 'index',
-            ]);
-
-            return $this->redirect($redirect);
-        }
-        // display error if user submitted and authentication failed
-        if ($this->request->is('post') && !$result->isValid())
-         {
-            $this->Flash->error(__('Invalid username or password'));
+        if ($result->isValid()) {
+            $this->Authentication->logout();
+            return $this->redirect(['controller' => 'Users', 'action' => 'index']);
         }
     }
 }

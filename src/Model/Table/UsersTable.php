@@ -41,7 +41,7 @@ class UsersTable extends Table
 
         $this->setTable('users');
         $this->setDisplayField('id');
-        $this->setPrimaryKey('id');
+        $this->setPrimaryKey('id','username');
 
         $this->addBehavior('Timestamp');
     }
@@ -57,6 +57,24 @@ class UsersTable extends Table
         $validator
             ->integer('id')
             ->allowEmptyString('id', null, 'create');
+
+        $validator
+            ->scalar('firstname')
+            ->maxLength('firstname', 45)
+            ->requirePresence('firstname', 'create')
+            ->notEmptyString('firstname');
+
+        $validator
+            ->scalar('lastname')
+            ->maxLength('lastname', 45)
+            ->requirePresence('lastname', 'create')
+            ->notEmptyString('lastname');
+
+        $validator
+            ->scalar('username')
+            ->maxLength('username', 45)
+            ->requirePresence('username', 'create')
+            ->notEmptyString('username');
 
         $validator
             ->email('email')
@@ -81,6 +99,7 @@ class UsersTable extends Table
      */
     public function buildRules(RulesChecker $rules): RulesChecker
     {
+        $rules->add($rules->isUnique(['username']));
         $rules->add($rules->isUnique(['email']));
 
         return $rules;
