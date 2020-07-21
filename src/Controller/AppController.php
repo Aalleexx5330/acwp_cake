@@ -48,27 +48,6 @@ class AppController extends Controller
          * Enable the following component for recommended CakePHP form protection settings.
          * see https://book.cakephp.org/4/en/controllers/components/form-protection.html
          */
-        //$this->loadComponent('FormProtection');
-        $this->loadComponent('Auth', [
-            'authenticate' => [
-                'Form' => [
-                    'fields' => [
-                        'username' => 'username',
-                        'password' => 'password'
-                    ]
-                ]
-            ],
-            'loginAction' => [
-                'controller' => 'Users',
-                'action' => 'login'
-            ],
-             // If unauthorized, return them to page they were just on
-            'unauthorizedRedirect' => $this->referer()
-        ]);
-
-        // Allow the display action so our PagesController
-        // continues to work. Also enable the read only actions.
-        $this->Auth->allow(['display', 'view', 'index']);
     }
 
     public function beforeFilter(\Cake\Event\EventInterface $event)

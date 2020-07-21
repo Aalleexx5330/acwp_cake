@@ -3,8 +3,10 @@
     <li><a onclick="active()" href="#about" class="nav">About</a></li>
     <li><a onclick="active()" href="#server" class="nav">Server</a></li>
     <li><a onclick="active()" href="#social_media" class="nav">Social Media</a></li>
+    <li class="nav-right" class="nav"><a href="Users/logout">Logout</a></li>   
     <li class="nav-right" class="nav"><a href="Users/login">Login</a></li>
     <li class="nav-right" class="nav"><a href="Users/add">Registrieren</a></li>
+
 </ul>
 <div id="body">
    <section id="home">
