@@ -3,15 +3,15 @@
     <li><a onclick="active()" href="#about" class="nav">About</a></li>
     <li><a onclick="active()" href="#server" class="nav">Server</a></li>
     <li><a onclick="active()" href="#social_media" class="nav">Social Media</a></li>
-    <li class="nav-right" class="nav"><a href="users/logout">Logout</a></li>   
-    <li class="nav-right" class="nav"><a href="users/login">Login</a></li>
-    <li class="nav-right" class="nav"><a href="users/add">Registrieren</a></li>
+     <?= $login_logout ?>
+     <?= $register ?>
 
 </ul>
 <div id="body">
    <section id="home">
           <h1>Home</h1>
           <br/>
+          <?= $username?>;
           <br/>
           <br/>
           <br/>
