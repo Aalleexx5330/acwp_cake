@@ -11,7 +11,6 @@
    <section id="home">
           <h1>Home</h1>
           <br/>
-          <?= $username?>;
           <br/>
           <br/>
           <br/>
