@@ -46,11 +46,11 @@ class UsersFixture extends TestFixture
                 'id' => 1,
                 'firstname' => 'Lorem ipsum dolor sit amet',
                 'lastname' => 'Lorem ipsum dolor sit amet',
-                'username' => '7efdf7c0-9db4-452d-9f75-7ca33d880b82',
-                'email' => 'c254107f-0fb8-4e2c-b6c2-e5036aed01e8',
+                'username' => 'e73686c1-86d5-4c17-b773-560f136886be',
+                'email' => 'cdbef318-de49-41e6-a693-06fc62cc7064',
                 'password' => 'Lorem ipsum dolor sit amet',
-                'modified' => '2020-07-27 12:18:17',
-                'created' => '2020-07-27 12:18:17',
+                'modified' => '2020-07-27 12:39:46',
+                'created' => '2020-07-27 12:39:46',
             ],
         ];
         parent::init();

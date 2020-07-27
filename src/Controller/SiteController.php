@@ -29,7 +29,7 @@ class SiteController extends AppController
         $server[0]['port'] =     	 25565;
         $server[1]['name']= 'Teamspeak-Server';
         $server[1]['port'] =     	 10011;
-        $timeout=        0.00001;
+        $timeout=        1;
         
         foreach($server as $key )
         {
