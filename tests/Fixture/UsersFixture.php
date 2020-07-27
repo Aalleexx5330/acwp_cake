@@ -26,7 +26,7 @@ class UsersFixture extends TestFixture
         'modified' => ['type' => 'datetime', 'length' => null, 'precision' => null, 'null' => true, 'default' => null, 'comment' => ''],
         'created' => ['type' => 'datetime', 'length' => null, 'precision' => null, 'null' => true, 'default' => null, 'comment' => ''],
         '_constraints' => [
-            'primary' => ['type' => 'primary', 'columns' => ['id', 'username'], 'length' => []],
+            'primary' => ['type' => 'primary', 'columns' => ['id', 'username', 'email'], 'length' => []],
         ],
         '_options' => [
             'engine' => 'InnoDB',
@@ -46,11 +46,11 @@ class UsersFixture extends TestFixture
                 'id' => 1,
                 'firstname' => 'Lorem ipsum dolor sit amet',
                 'lastname' => 'Lorem ipsum dolor sit amet',
-                'username' => '0caacd05-1f89-4e0f-862f-6cbff6b9729a',
-                'email' => 'Lorem ipsum dolor sit amet',
+                'username' => '7efdf7c0-9db4-452d-9f75-7ca33d880b82',
+                'email' => 'c254107f-0fb8-4e2c-b6c2-e5036aed01e8',
                 'password' => 'Lorem ipsum dolor sit amet',
-                'modified' => '2020-07-20 07:05:21',
-                'created' => '2020-07-20 07:05:21',
+                'modified' => '2020-07-27 12:18:17',
+                'created' => '2020-07-27 12:18:17',
             ],
         ];
         parent::init();
