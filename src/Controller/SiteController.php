@@ -13,7 +13,7 @@ class SiteController extends AppController
         if ($login_logout->isValid()) 
         {
             $login_logout = '<li class="nav-right" class="nav"><a href="users/logout">Logout</a></li>';
-            $curentuser = $this->Authentication->get_current_user();
+            $register ='';
 
         }
         else

@@ -32,7 +32,7 @@ CREATE TABLE `users` (
   `modified` datetime DEFAULT NULL,
   `created` datetime DEFAULT NULL,
   PRIMARY KEY (`id`,`username`,`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Admin','admin','admin','webmaster@acwp-community.de','$2y$10$rvvxs5JsJpvZkZ492zYvr.tldtV44fp9DR4xmGt7H1qfUl0yt/FCq','2020-07-20 09:17:00','2020-07-15 13:54:47'),(2,'Alexander','Schneider','Aalleexx5330','Bahnerch1@t-online.de','1234','2020-07-21 07:20:29','2020-07-20 08:47:54'),(3,'Max','Mustermann','MM','mustermann@mail.com','$2y$10$Bw7WFCEgtr43oNrM8OQ3..T2AwI8tUe1zojJ537AsS2UTMToTcmYq','2020-07-21 06:48:36','2020-07-21 06:48:36');
+INSERT INTO `users` VALUES (1,'Admin','admin','admin','webmaster@acwp-community.de','$2y$10$rvvxs5JsJpvZkZ492zYvr.tldtV44fp9DR4xmGt7H1qfUl0yt/FCq','2020-07-20 09:17:00','2020-07-15 13:54:47'),(2,'Alexander','Schneider','Aalleexx5330','Bahnerch1@t-online.de','$2y$10$80U10xJGuBzFtNPp1ZtnIOlMgJkbN1bW3WCrk5F0ESwS.bi6QuBbK','2020-07-27 13:46:41','2020-07-20 08:47:54'),(3,'Max','Mustermann','MM','mustermann@mail.com','$2y$10$Bw7WFCEgtr43oNrM8OQ3..T2AwI8tUe1zojJ537AsS2UTMToTcmYq','2020-07-21 06:48:36','2020-07-21 06:48:36'),(4,'Test','Nachname','Test','test@mail.com','$2y$10$Mv/.6cb/09VVOgYnWL3aDOSVKDjtU5o8GSyA79zblC2XHPOXQk1I2','2020-07-27 13:42:38','2020-07-27 13:42:38');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-07-27 14:42:12
+-- Dump completed on 2020-07-27 15:47:34
