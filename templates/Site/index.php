@@ -1,3 +1,4 @@
+
 <ul id="navbar">
     <li><a onclick="active()"  href="#home" class="nav active">Home</a></li>
     <li><a onclick="active()"  href="#about" class="nav">About</a></li>
