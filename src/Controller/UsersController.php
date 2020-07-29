@@ -135,4 +135,14 @@ class UsersController extends AppController
             $this->Flash->error(__('Invalid username or password'));
         }
     }
+
+    public function profil()
+    {
+        $this->loadModel('Image');
+        $session = $this->request->getSession();
+        $firstname = $session->read('Auth.firstname');
+        $lastname = $session->read('Auth.lastname');
+        $username = $session->read('Auth.username');
+        $email = $session->read('Auth.email');
+    }
 }
