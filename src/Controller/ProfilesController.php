@@ -25,11 +25,6 @@ class ProfilesController extends AppController
         $session = $this->request->getSession();
         $userid = $session->read('Auth.id');
         $profiles = $this->paginate($this->Profiles);
-        $query= $profiles->find()->select(['id', 'profilesphoto'])->join(['table' => 'users',
-                                                                          'alias' => 'a',
-                                                                          'type' => 'LEFT',
-                                                                          'conditions' => 'a.id=id']);
-
         $this->set(compact('profiles'));
     }
 
