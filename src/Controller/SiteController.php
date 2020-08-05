@@ -11,7 +11,7 @@ class SiteController extends AppController
         $user = $session->read('Auth.username');
         if ($login_logout->isValid()) {
             $login_logout = '<li class="nav-right" class="nav"><a href="users/logout">Logout</a></li>';
-            $register =     '<li class="nav-right" class="nav"><a href="Profiles/profile">' . $user. '</a></li>';
+            $register =     '<li class="nav-right" class="nav"><a href="Profiles/index">' . $user. '</a></li>';
        } else {
            $login_logout = '<li class="nav-right" class="nav"><a href="users/login">Login</a></li>';
            $register     = '<li class="nav-right" class="nav"><a href="users/add">Registrieren</a></li>';
