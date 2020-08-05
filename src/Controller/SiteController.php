@@ -29,9 +29,11 @@ class SiteController extends AppController
         foreach ($server as $key) {
             $request = @fsockopen($adresse, $key['port'], $errno, $errstr, $timeout);
             if ($request) {
-                $on_off[] = "<div>Der " . $key['name'] . " ist Online";
+                $on_off[0] = '<img src="webroot\img\minecraft_online.png" alt ="Minercraft Server ist Online"> ';
+                $on_off[1] = '<img src="webroot\img\ts_online.png" alt ="Teampeak Server ist Online">';
             } else {
-                $on_off[] = "<div>Der " . $key['name'] . " ist Offline";
+                $on_off[0] = '<img src="webroot\img\minecraft_offline.png" alt ="Minercraft Server ist Offline"> ';
+                $on_off[1] = '<img src="webroot\img\ts_offline.png"> alt ="Teamspeak Server ist Offline"';
             }
         }
 

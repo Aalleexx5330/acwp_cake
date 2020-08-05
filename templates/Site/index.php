@@ -1,9 +1,9 @@
 
 <ul id="navbar">
-    <li><a onclick="active()"  href="#home" class="nav active">Home</a></li>
-    <li><a onclick="active()"  href="#about" class="nav">About</a></li>
-    <li><a onclick="active()"  href="#server" class="nav">Server</a></li>
-    <li><a onclick="active()"  href="#social_media" class="nav">Social Media</a></li>
+    <li><a onclick="active();"  href="#home" class="nav active">Home</a></li>
+    <li><a onclick="active();"  href="#about" class="nav">About</a></li>
+    <li><a onclick="active();"  href="#server" class="nav">Server</a></li>
+    <li><a onclick="active();"  href="#social_media" class="nav">Social Media</a></li>
      <?= $login_logout ?>
      <?= $register ?>
 
