@@ -1,7 +1,10 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Controller;
+
+use Cake\ORM\TableRegistry;
 use Cake\Datasource\ConnectionManager;
 use Cake\Orm\Query;
 use Cake\ORM\Locator\LocatorAwareTrait;
@@ -24,8 +27,9 @@ class ProfilesController extends AppController
     {
         $session = $this->request->getSession();
         $userid = $session->read('Auth.id');
-        $profiles = $this->paginate($this->Profiles);
-        $this->set(compact('profiles'));
+        $query = $this->Profiles->find()
+            ->select(['profilesphoto'])
+            ->where(['id ' => $userid]);
     }
 
     /**
@@ -57,14 +61,14 @@ class ProfilesController extends AppController
         if ($this->request->is('post')) {
             $profile->id = $userid;
             $profile = $this->Profiles->patchEntity($profile, $this->request->getData());
-            if ($this->Profiles->save($profile)) {      
+            if ($this->Profiles->save($profile)) {
                 $this->Flash->success(__('The profile has been saved.'));
-                
+
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('The profile could not be saved. Please, try again.'));
         }
-        $this->set(compact('profile','userid'));
+        $this->set(compact('profile', 'userid'));
     }
 
     /**

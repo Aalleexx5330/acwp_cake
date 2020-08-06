@@ -22,18 +22,20 @@ class SiteController extends AppController
         $adresse =       gethostbyname($domain);
         $server[0]['name'] = 'Minecraft-Server';
         $server[0]['port'] =          25565;
+        $server[0]['online']= 'webroot\img\minecraft_online.png';
+        $server[0]['offline']= 'webroot\img\minecraft_offline.png';
         $server[1]['name'] = 'Teamspeak-Server';
         $server[1]['port'] =          10011;
+        $server[1]['online'] = 'webroot\img\ts_online.png';
+        $server[1]['offline'] = 'webroot\img\ts_offline.png';
         $timeout =        1;
 
         foreach ($server as $key) {
             $request = @fsockopen($adresse, $key['port'], $errno, $errstr, $timeout);
             if ($request) {
-                $on_off[0] = '<img src="webroot\img\minecraft_online.png" alt ="Minercraft Server ist Online"> ';
-                $on_off[1] = '<img src="webroot\img\ts_online.png" alt ="Teampeak Server ist Online">';
+                $on_off[] = "<img src=".$key['online'] . " alt= " .$key['name'] . " ist Online>";
             } else {
-                $on_off[0] = '<img src="webroot\img\minecraft_offline.png" alt ="Minercraft Server ist Offline"> ';
-                $on_off[1] = '<img src="webroot\img\ts_offline.png"> alt ="Teamspeak Server ist Offline"';
+                $on_off[] = "<img src=".$key['offline'] . " alt= " .$key['name'] . " ist Offline>";
             }
         }
 
