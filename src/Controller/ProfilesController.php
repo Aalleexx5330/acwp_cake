@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use Cake\Filesystem\Folder;
 use Cake\ORM\TableRegistry;
 use Cake\Datasource\ConnectionManager;
 use Cake\Orm\Query;
@@ -27,9 +28,11 @@ class ProfilesController extends AppController
     {
         $session = $this->request->getSession();
         $userid = $session->read('Auth.id');
-        $query = $this->Profiles->find()
-            ->select(['profilesphoto'])
-            ->where(['id ' => $userid]);
+        $new_folder= '.\profile/'. $userid .'';
+        if(!file_exists($new_folder)){
+            mkdir($new_folder,0777,true);
+        }
+        
     }
 
     /**
@@ -60,12 +63,13 @@ class ProfilesController extends AppController
         $profile = $this->Profiles->newEmptyEntity();
         if ($this->request->is('post')) {
             $profile->id = $userid;
-            $profile = $this->Profiles->patchEntity($profile, $this->request->getData());
-            if ($this->Profiles->save($profile)) {
-                $this->Flash->success(__('The profile has been saved.'));
+                $profile = $this->Profiles->patchEntity($profile, $this->request->getData());
+                if ($this->Profiles->save($profile)) {
+                    $this->Flash->success(__('The profile has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
-            }
+                    return $this->redirect(['action' => 'index']);
+                }
+        
             $this->Flash->error(__('The profile could not be saved. Please, try again.'));
         }
         $this->set(compact('profile', 'userid'));

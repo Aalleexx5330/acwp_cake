@@ -1,8 +1,11 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Controller;
+
 use App\Controller\AppController;
+
 /**
  * Users Controller
  *
@@ -29,8 +32,8 @@ class UsersController extends AppController
         // the infinite redirect loop issue
         $this->Authentication->addUnauthenticatedActions(['login', 'add']);
     }
-    
-    
+
+
     /**
      * View method
      *
@@ -58,12 +61,14 @@ class UsersController extends AppController
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
             if ($this->Users->save($user)) {
-                $this->Flash->success(__('The user has been saved.'));
 
+                $this->Flash->success(__('The user has been saved.'));
                 return $this->redirect(['controller' => 'Users', 'action' => 'login']);
             }
             $this->Flash->error(__('The user could not be saved. Please, try again.'));
         }
+
+
         $this->set(compact('user'));
     }
 
@@ -126,9 +131,7 @@ class UsersController extends AppController
         $result = $this->Authentication->getResult();
         // regardless of POST or GET, redirect if user is logged in
         if ($result->isValid()) {
-        
-        return $this->redirect(['controller' => 'Site', 'action' => 'index']);
-
+            return $this->redirect(['controller' => 'Site', 'action' => 'index']);
         }
         // display error if user submitted and authentication failed
         if ($this->request->is('post') && !$result->isValid()) {
