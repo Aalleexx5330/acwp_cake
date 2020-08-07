@@ -12,9 +12,10 @@
     </aside>
     <div class="column-responsive column-80">
         <div class="profiles form content">
-            <?= $this->Form->create($profile) ?>
+            <?= $this->Form->create(NULL, ['type'=>'file']);
+            ?>
             <legend><?= __('Add Profile') ?></legend>
-            <?= $this->Form->file('profilesphoto'); ?>
+            <?= $this->Form->file('submittedfile'); ?>
             <?= $this->Form->button(__('Submit')) ?>
             <?= $this->Form->end() ?>
             <?= $this->Html->link("Zurück", ['controller' => 'Profiles', 'action' => 'index']) ?>

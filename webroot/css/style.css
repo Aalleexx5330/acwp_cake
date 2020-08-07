@@ -50,6 +50,8 @@ html {
 
 img {
     Text-align: center;
+    height: 150px;
+    width: 150px;
 }
 
 div#img {

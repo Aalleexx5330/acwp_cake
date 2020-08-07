@@ -28,11 +28,23 @@ class ProfilesController extends AppController
     {
         $session = $this->request->getSession();
         $userid = $session->read('Auth.id');
-        $new_folder= '.\profile/'. $userid .'';
-        if(!file_exists($new_folder)){
-            mkdir($new_folder,0777,true);
+        $new_folder = '.\profile/' . $userid . '';
+        if (!file_exists($new_folder)) {
+            mkdir($new_folder, 0777, true);
         }
-        
+        $folder = array_diff(scandir($new_folder), array('.', '..'));
+        if (!$folder) {
+            $img = '<img src="./webroot/img/placeholder.jpg">';
+            $edit = '<a href="./Profiles/add">Profilfoto hinzufügen</a>';
+        } else {
+            $image = scandir($new_folder, 0);
+            $img = '<img src=' . $new_folder . '/' . $image[2] . '>';
+            $edit = '<a href="./Profiles/index">Profilfoto löschen</a>';
+        }
+        /*var_dump($image);
+        die;*/
+
+        $this->set(compact('img', 'edit'));
     }
 
     /**
@@ -60,17 +72,22 @@ class ProfilesController extends AppController
     {
         $session = $this->request->getSession();
         $userid = $session->read('Auth.id');
+        $new_folder = '.\profile/' . $userid . '/';
+        $session = $this->request->getSession();
+        $userid = $session->read('Auth.id');
         $profile = $this->Profiles->newEmptyEntity();
         if ($this->request->is('post')) {
-            $profile->id = $userid;
-                $profile = $this->Profiles->patchEntity($profile, $this->request->getData());
-                if ($this->Profiles->save($profile)) {
-                    $this->Flash->success(__('The profile has been saved.'));
+            $fileobject = $this->request->getData('submittedfile');
+            $file = substr_replace($fileobject->getClientFilename(), 'image', 0);
+            $type = substr($fileobject->getclientMediaType(), 6, 4);
+            $uploadPath = $new_folder;
 
-                    return $this->redirect(['action' => 'index']);
-                }
-        
-            $this->Flash->error(__('The profile could not be saved. Please, try again.'));
+            $destination = $uploadPath . $file . '.' . $type;
+            // Existing files with the same name will be replaced.
+            /*var_dump($uploadPath,$file,$fileobject,$type,$destination);
+                die;*/
+            $fileobject->moveTo($destination);
+            return $this->redirect(['action' => 'index']);
         }
         $this->set(compact('profile', 'userid'));
     }
@@ -100,7 +117,7 @@ class ProfilesController extends AppController
     }
 
     /**
-     * Delete method
+     * Delete method>
      *
      * @param string|null $id Profile id.
      * @return \Cake\Http\Response|null|void Redirects to index.
