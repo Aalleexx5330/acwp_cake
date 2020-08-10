@@ -1,11 +1,11 @@
-function active(){
+function active() {
     var navbar = document.getElementById("navbar");
     var navs = navbar.getElementsByClassName("nav");
     for (var i = 0; i < navs.length; i++) {
-      navs[i].addEventListener("click", function() {
-      var current = document.getElementsByClassName("active");
-      current[0].className = current[0].className.replace(" active", "");
-      this.className += " active";
-      });
+        navs[i].addEventListener("click", function() {
+            var current = document.getElementsByClassName("active");
+            current[0].className = current[0].className.replace(" active", "");
+            this.className += " active";
+        });
     }
-}
+};

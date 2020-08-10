@@ -6,15 +6,24 @@ class SiteController extends AppController
 {
     public function index()
     {
+        clearstatcache();
         $session = $this->request->getSession();
         $login_logout = $this->Authentication->getResult();
         $user = $session->read('Auth.username');
+        $userid = $session->read('Auth.id');
+        $image_folder = '.\profile/' . $userid . '';
+        if (!file_exists($image_folder)) {
+            mkdir($image_folder, 0777, true);
+        }
+        $image = scandir($image_folder, 0);
+        $image = $image_folder .'/' .$image[2]  ;
+
         if ($login_logout->isValid()) {
             $login_logout = '<li class="nav-right" class="nav"><a href="users/logout">Logout</a></li>';
-            $register =     '<li class="nav-right" class="nav"><a href="Profiles/index">' . $user . '</a></li>';
+            $register =     '<img src='.$image.' class="nav-right nav-image"><li class="nav-right nav"><a href="Profiles">' . $user . '</a></li>';
         } else {
-            $login_logout = '<li class="nav-right" class="nav"><a href="users/login">Login</a></li>';
-            $register     = '<li class="nav-right" class="nav"><a href="users/add">Registrieren</a></li>';
+            $login_logout = '<li class="nav-right nav"><a href="users/login">Login</a></li>';
+            $register     = '<li class="nav-right nav"><a href="users/add">Registrieren</a></li>';
         }
 
         //Server Abfrage

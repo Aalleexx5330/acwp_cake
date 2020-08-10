@@ -4,11 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use Cake\Filesystem\Folder;
-use Cake\ORM\TableRegistry;
-use Cake\Datasource\ConnectionManager;
-use Cake\Orm\Query;
-use Cake\ORM\Locator\LocatorAwareTrait;
+use Thedudeguy\Rcon;
 
 
 /**
@@ -26,25 +22,51 @@ class ProfilesController extends AppController
      */
     public function index()
     {
+        //Profilephoto
         $session = $this->request->getSession();
         $userid = $session->read('Auth.id');
-        $new_folder = '.\profile/' . $userid . '';
-        if (!file_exists($new_folder)) {
-            mkdir($new_folder, 0777, true);
+        $image_folder = '.\profile/' . $userid . '';
+        if (!file_exists($image_folder)) {
+            mkdir($image_folder, 0777, true);
         }
-        $folder = array_diff(scandir($new_folder), array('.', '..'));
-        if (!$folder) {
-            $img = '<img src="./webroot/img/placeholder.jpg">';
-            $edit = '<a href="./Profiles/add">Profilfoto hinzufügen</a>';
+        $image = array_diff(scandir($image_folder,), array('.', '..'));
+        if (!$image) {
+            $img = '<img class="profile-image" src="/acwp/webroot/img/placeholder.jpg">';
+            $edit = '<a href="Profiles/add">Profilfoto hinzufügen</a>';
         } else {
-            $image = scandir($new_folder, 0);
-            $img = '<img src=' . $new_folder . '/' . $image[2] . '>';
-            $edit = '<a href="./Profiles/index">Profilfoto löschen</a>';
+            /*var_dump($image);
+            die;*/
+            $image = $image_folder .'/' .$image[2]  ;
+            $img = '<img class="profile-image" src='.$image. '>';
+            $edit = '<a href="Profiles/edit">Profilfoto ändern</a>';  
         }
-        /*var_dump($image);
+        
+        //Minecraftserver rcon
+        $domain =        "www.acwp-community.de";
+        $adresse =       gethostbyname($domain);
+        $port =          25575;
+        $password = '04As1095!?!';
+        $timeout =        3;
+        $whitelist = '';
+        $this->request->allowMethod(['get', 'post']);
+        if ($this->request->is('post')) {
+            $whitelist = $this->request->getdata();
+            $rcon = new Rcon($adresse, $port, $password, $timeout);
+
+            if ($rcon->connect())
+            {
+                $rcon->sendCommand('whitelist add '.$whitelist['Ingame_Name']);
+                $this->Flash->success(__('Der Benutzer wurde erfolgreich Hinzugefügt.'));    
+            }
+
+
+        }
+
+
+        /*var_dump($whitelist);
         die;*/
 
-        $this->set(compact('img', 'edit'));
+        $this->set(compact('img', 'edit','whitelist'));
     }
 
     /**
@@ -72,21 +94,23 @@ class ProfilesController extends AppController
     {
         $session = $this->request->getSession();
         $userid = $session->read('Auth.id');
-        $new_folder = '.\profile/' . $userid . '/';
+        $image_folder = '.\profile/' . $userid . '/';
         $session = $this->request->getSession();
         $userid = $session->read('Auth.id');
         $profile = $this->Profiles->newEmptyEntity();
         if ($this->request->is('post')) {
+
             $fileobject = $this->request->getData('submittedfile');
             $file = substr_replace($fileobject->getClientFilename(), 'image', 0);
             $type = substr($fileobject->getclientMediaType(), 6, 4);
-            $uploadPath = $new_folder;
+            $uploadPath = $image_folder;
 
             $destination = $uploadPath . $file . '.' . $type;
             // Existing files with the same name will be replaced.
             /*var_dump($uploadPath,$file,$fileobject,$type,$destination);
                 die;*/
             $fileobject->moveTo($destination);
+            clearstatcache();
             return $this->redirect(['action' => 'index']);
         }
         $this->set(compact('profile', 'userid'));
@@ -101,19 +125,18 @@ class ProfilesController extends AppController
      */
     public function edit($id = null)
     {
-        $profile = $this->Profiles->get($id, [
-            'contain' => [],
-        ]);
-        if ($this->request->is(['patch', 'post', 'put'])) {
-            $profile = $this->Profiles->patchEntity($profile, $this->request->getData());
-            if ($this->Profiles->save($profile)) {
-                $this->Flash->success(__('The profile has been saved.'));
-
-                return $this->redirect(['action' => 'index']);
-            }
-            $this->Flash->error(__('The profile could not be saved. Please, try again.'));
+        $session = $this->request->getSession();
+        $userid = $session->read('Auth.id');
+        $image_folder = '.\profile/' . $userid . '';
+        if (!file_exists($image_folder)) {
+            mkdir($image_folder, 0777, true);
         }
-        $this->set(compact('profile'));
+        $image = array_diff(scandir($image_folder,), array('.', '..'));
+        $image = $image_folder .'/' .$image[2]  ;
+        unlink($image);
+        return $this->redirect(['action' => 'index']);
+        /*var_dump($image);
+        die;*/
     }
 
     /**
@@ -134,5 +157,10 @@ class ProfilesController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+
+    public function deleteimage()
+    {
+
     }
 }

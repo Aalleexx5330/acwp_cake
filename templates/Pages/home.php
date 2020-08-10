@@ -42,8 +42,7 @@ $cakeDescription = 'ACWP-Community';
     <?= $this->Html->meta('icon') ?>
 
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
-
-    <?= $this->Html->css(['normalize.min', 'milligram.min', 'cake', 'home']) ?>
+    <?= $this->Html->css(['normalize.min', 'milligram.min', 'cake', 'home', 'bootstrap.min']) ?>
     <?= $this->Html->javascript('jquery.js');?>
     <?= $this->Html->javascript('bootstrap.min.js');?>
     <?= $this->fetch('meta') ?>

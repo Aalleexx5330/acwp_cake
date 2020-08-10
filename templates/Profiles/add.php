@@ -19,6 +19,7 @@
             <?= $this->Form->button(__('Submit')) ?>
             <?= $this->Form->end() ?>
             <?= $this->Html->link("Zurück", ['controller' => 'Profiles', 'action' => 'index']) ?>
+              <?= clearstatcache();?>
         </div>
     </div>
 </div>
