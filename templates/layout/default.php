@@ -34,6 +34,8 @@ $cakeDescription = 'ACWP-Community';
     <?= $this->fetch('script') ?>
 </head>
 <body>
+    
+
     <!--<nav class="top-nav">
         <div class="top-nav-title">
             <a href="<?= $this->Url->build('/') ?>"><span>Cake</span>PHP</a>
@@ -51,5 +53,9 @@ $cakeDescription = 'ACWP-Community';
     </main>
     <footer>
     </footer>
+    <script>
+    var slideIndex = 0;
+    showSlides();
+    </script>
 </body>
 </html>

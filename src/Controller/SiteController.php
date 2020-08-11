@@ -15,8 +15,12 @@ class SiteController extends AppController
         if (!file_exists($image_folder)) {
             mkdir($image_folder, 0777, true);
         }
-        $image = scandir($image_folder, 0);
-        $image = $image_folder .'/' .$image[2]  ;
+        $image = array_diff(scandir($image_folder,), array('.', '..'));
+        if (!$image) {
+            $image = '/acwp/webroot/img/placeholder.jpg';
+        } else {
+            $image = $image_folder .'/' .$image[2]  ;
+        }
 
         if ($login_logout->isValid()) {
             $login_logout = '<li class="nav-right" class="nav"><a href="users/logout">Logout</a></li>';

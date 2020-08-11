@@ -7,6 +7,7 @@ ul {
     position: fixed;
     top: 0;
     width: 100%;
+    z-index: 500;
 }
 
 li {
@@ -38,13 +39,6 @@ li a:hover {
     background-color: #4caf50;
 }
 
-div#body {
-    padding: 20px;
-    height: 1500px;
-    top: 30px;
-    width: 100%;
-}
-
 h1 {
     text-align: center;
 }
@@ -63,6 +57,13 @@ div#img {
     text-align: center;
 }
 
+.position::before {
+    display: block;
+    content: "";
+    height: 20px;
+    visibility: hidden;
+}
+
 * {
     box-sizing: border-box
 }
@@ -71,7 +72,8 @@ div#img {
 /* Slideshow container */
 
 .slideshow-container {
-    max-width: 1000px;
+    padding-top: 60px;
+    width: 20%;
     position: relative;
     margin: auto;
 }
@@ -88,9 +90,9 @@ div#img {
 
 .fade {
     -webkit-animation-name: fade;
-    -webkit-animation-duration: 1.5s;
+    -webkit-animation-duration: 3s;
     animation-name: fade;
-    animation-duration: 1.5s;
+    animation-duration: 3s;
 }
 
 @-webkit-keyframes fade {
@@ -109,4 +111,18 @@ div#img {
     to {
         opacity: 1
     }
+}
+
+.server {
+    float: left;
+    width: 50%;
+}
+
+.social {
+    float: left;
+    width: 50%;
+}
+
+.profile {
+    align-content: center;
 }

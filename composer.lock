@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0e7eeaf4ad6ba613710a413a31d69655",
+    "content-hash": "8e389f40af2e867fc8a198b9dd5dbe0c",
     "packages": [
         {
             "name": "aura/intl",
@@ -425,6 +425,44 @@
                 }
             ],
             "time": "2020-04-08T08:27:21+00:00"
+        },
+        {
+            "name": "funnyitselmo/minecraftserverstatus",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FunnyItsElmo/PHP-Minecraft-Server-Status-Query.git",
+                "reference": "71ba574c1a6587340f4ba141fa92ff8595751226"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FunnyItsElmo/PHP-Minecraft-Server-Status-Query/zipball/71ba574c1a6587340f4ba141fa92ff8595751226",
+                "reference": "71ba574c1a6587340f4ba141fa92ff8595751226",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "MinecraftServerStatus\\": "src/",
+                    "MinecraftServerStatus\\Packets\\": "src/Packets/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD"
+            ],
+            "authors": [
+                {
+                    "name": "Julian Spravil",
+                    "email": "julian.spr@t-online.de"
+                }
+            ],
+            "keywords": [
+                "minecraft",
+                "server",
+                "status"
+            ],
+            "time": "2016-03-25T20:45:58+00:00"
         },
         {
             "name": "laminas/laminas-diactoros",

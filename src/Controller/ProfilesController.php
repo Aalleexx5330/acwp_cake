@@ -23,6 +23,7 @@ class ProfilesController extends AppController
     public function index()
     {
         //Profilephoto
+        
         $session = $this->request->getSession();
         $userid = $session->read('Auth.id');
         $image_folder = '.\profile/' . $userid . '';
@@ -38,7 +39,7 @@ class ProfilesController extends AppController
             die;*/
             $image = $image_folder .'/' .$image[2]  ;
             $img = '<img class="profile-image" src='.$image. '>';
-            $edit = '<a href="Profiles/edit">Profilfoto ändern</a>';  
+            $edit = '<a href="Profiles/edit">Profilfoto löschen</a>';  
         }
         
         //Minecraftserver rcon
