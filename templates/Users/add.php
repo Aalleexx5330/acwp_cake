@@ -21,6 +21,7 @@
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>
+            <?= $this->Html->link("Zurück", ['controller' => 'Site', 'action' => 'index']) ?>
             <?= $this->Form->end() ?>
         </div>
     </div>

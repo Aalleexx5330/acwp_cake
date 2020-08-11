@@ -53,9 +53,6 @@ $cakeDescription = 'ACWP-Community';
     </main>
     <footer>
     </footer>
-    <script>
-    var slideIndex = 0;
-    showSlides();
-    </script>
+
 </body>
 </html>

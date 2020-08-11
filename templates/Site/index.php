@@ -57,3 +57,7 @@
 </div>
 </div>
 </div>
+<script>
+    var slideIndex = 0;
+    showSlides();
+    </script>
