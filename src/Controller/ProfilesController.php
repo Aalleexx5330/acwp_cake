@@ -23,7 +23,7 @@ class ProfilesController extends AppController
     public function index()
     {
         //Profilephoto
-        
+
         $session = $this->request->getSession();
         $userid = $session->read('Auth.id');
         $image_folder = '.\profile/' . $userid . '';
@@ -37,11 +37,11 @@ class ProfilesController extends AppController
         } else {
             /*var_dump($image);
             die;*/
-            $image = $image_folder .'/' .$image[2]  ;
-            $img = '<img class="profile-image" src='.$image. '>';
-            $edit = '<a href="Profiles/edit">Profilfoto löschen</a>';  
+            $image = $image_folder . '/' . $image[2];
+            $img = '<img class="profile-image" src=' . $image . '>';
+            $edit = '<a href="Profiles/edit">Profilfoto löschen</a>';
         }
-        
+
         //Minecraftserver rcon
         $domain =        "www.acwp-community.de";
         $adresse =       gethostbyname($domain);
@@ -54,20 +54,17 @@ class ProfilesController extends AppController
             $whitelist = $this->request->getdata();
             $rcon = new Rcon($adresse, $port, $password, $timeout);
 
-            if ($rcon->connect())
-            {
-                $rcon->sendCommand('whitelist add '.$whitelist['Ingame_Name']);
-                $this->Flash->success(__('Der Benutzer wurde erfolgreich Hinzugefügt.'));    
+            if ($rcon->connect()) {
+                $rcon->sendCommand('whitelist add ' . $whitelist['Ingame_Name']);
+                $this->Flash->success(__('Der Benutzer wurde erfolgreich Hinzugefügt.'));
             }
-
-
         }
 
 
         /*var_dump($whitelist);
         die;*/
 
-        $this->set(compact('img', 'edit','whitelist'));
+        $this->set(compact('img', 'edit', 'whitelist'));
     }
 
     /**
@@ -133,7 +130,7 @@ class ProfilesController extends AppController
             mkdir($image_folder, 0777, true);
         }
         $image = array_diff(scandir($image_folder,), array('.', '..'));
-        $image = $image_folder .'/' .$image[2]  ;
+        $image = $image_folder . '/' . $image[2];
         unlink($image);
         return $this->redirect(['action' => 'index']);
         /*var_dump($image);
@@ -162,6 +159,5 @@ class ProfilesController extends AppController
 
     public function deleteimage()
     {
-
     }
 }

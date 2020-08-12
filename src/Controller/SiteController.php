@@ -19,12 +19,12 @@ class SiteController extends AppController
         if (!$image) {
             $image = '/acwp/webroot/img/placeholder.jpg';
         } else {
-            $image = $image_folder .'/' .$image[2]  ;
+            $image = $image_folder . '/' . $image[2];
         }
 
         if ($login_logout->isValid()) {
             $login_logout = '<li class="nav-right" class="nav"><a href="users/logout">Logout</a></li>';
-            $register =     '<img src='.$image.' class="nav-right nav-image"><li class="nav-right nav"><a href="Profiles">' . $user . '</a></li>';
+            $register =     '<img src=' . $image . ' class="nav-right nav-image"><li class="nav-right nav"><a href="Profiles">' . $user . '</a></li>';
         } else {
             $login_logout = '<li class="nav-right nav"><a href="users/login">Login</a></li>';
             $register     = '<li class="nav-right nav"><a href="users/add">Registrieren</a></li>';
