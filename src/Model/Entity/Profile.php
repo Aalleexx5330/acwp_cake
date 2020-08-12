@@ -8,8 +8,10 @@ use Cake\ORM\Entity;
 /**
  * Profile Entity
  *
- * @property int $id
+ * @property int|null $id
  * @property string|resource|null $profilesphoto
+ * @property string|null $youtube
+ * @property string|null $twitch
  */
 class Profile extends Entity
 {
@@ -23,6 +25,9 @@ class Profile extends Entity
      * @var array
      */
     protected $_accessible = [
+        'id' => true,
         'profilesphoto' => true,
+        'youtube' => true,
+        'twitch' => true,
     ];
 }

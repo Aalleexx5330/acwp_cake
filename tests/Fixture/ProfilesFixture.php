@@ -17,10 +17,14 @@ class ProfilesFixture extends TestFixture
      */
     // phpcs:disable
     public $fields = [
-        'id' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
+        'id' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'profilesphoto' => ['type' => 'binary', 'length' => null, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null],
+        'youtube' => ['type' => 'string', 'length' => 45, 'null' => true, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
+        'twitch' => ['type' => 'string', 'length' => 45, 'null' => true, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
+        '_indexes' => [
+            'id' => ['type' => 'index', 'columns' => ['id'], 'length' => []],
+        ],
         '_constraints' => [
-            'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
             'id' => ['type' => 'foreign', 'columns' => ['id'], 'references' => ['users', 'id'], 'update' => 'cascade', 'delete' => 'cascade', 'length' => []],
         ],
         '_options' => [
@@ -40,6 +44,8 @@ class ProfilesFixture extends TestFixture
             [
                 'id' => 1,
                 'profilesphoto' => 'Lorem ipsum dolor sit amet',
+                'youtube' => 'Lorem ipsum dolor sit amet',
+                'twitch' => 'Lorem ipsum dolor sit amet',
             ],
         ];
         parent::init();

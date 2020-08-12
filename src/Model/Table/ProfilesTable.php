@@ -52,10 +52,20 @@ class ProfilesTable extends Table
     {
         $validator
             ->integer('id')
-            ->allowEmptyString('id', null, 'create');
+            ->allowEmptyString('id');
 
         $validator
             ->allowEmptyFile('profilesphoto');
+
+        $validator
+            ->scalar('youtube')
+            ->maxLength('youtube', 45)
+            ->allowEmptyString('youtube');
+
+        $validator
+            ->scalar('twitch')
+            ->maxLength('twitch', 45)
+            ->allowEmptyString('twitch');
 
         return $validator;
     }

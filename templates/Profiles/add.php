@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Profile $profile
@@ -8,18 +7,22 @@
 <div class="row">
     <aside class="column">
         <div class="side-nav">
+            <h4 class="heading"><?= __('Actions') ?></h4>
+            <?= $this->Html->link(__('List Profiles'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
         </div>
     </aside>
     <div class="column-responsive column-80">
         <div class="profiles form content">
-            <?= $this->Form->create(NULL, ['type'=>'file']);
-            ?>
-            <legend><?= __('Add Profile') ?></legend>
-            <?= $this->Form->file('submittedfile'); ?>
+            <?= $this->Form->create($profile) ?>
+            <fieldset>
+                <legend><?= __('Add Profile') ?></legend>
+                <?php
+                    echo $this->Form->control('youtube');
+                    echo $this->Form->control('twitch');
+                ?>
+            </fieldset>
             <?= $this->Form->button(__('Submit')) ?>
             <?= $this->Form->end() ?>
-            <?= $this->Html->link("Zurück", ['controller' => 'Profiles', 'action' => 'index']) ?>
-            <?= clearstatcache();?>
         </div>
     </div>
 </div>

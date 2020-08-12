@@ -1,3 +1,9 @@
+<?php
+/**
+ * @var \App\View\AppView $this
+ * @var \App\Model\Entity\User[]|\Cake\Collection\CollectionInterface $users
+ */
+?>
 <nav id="navbar">
     <ul>
         <li><a onclick="active();" href="#home" class="nav active">Home</a></li>
@@ -48,7 +54,7 @@
     <h1>Social Media</h1>
     <div align="center">
         <div class="social">
-            <img src=" webroot\img\youtube.jpg">
+            <img src=" webroot\img\youtube.jpg"> 
         </div>
         <div class="social">
             <img src=" webroot\img\twitch.jpeg">

@@ -105,8 +105,6 @@ class ProfilesController extends AppController
 
             $destination = $uploadPath . $file . '.' . $type;
             // Existing files with the same name will be replaced.
-            /*var_dump($uploadPath,$file,$fileobject,$type,$destination);
-                die;*/
             $fileobject->moveTo($destination);
             clearstatcache();
             return $this->redirect(['action' => 'index']);

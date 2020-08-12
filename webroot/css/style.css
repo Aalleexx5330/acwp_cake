@@ -78,7 +78,7 @@ div#img {
 
 .slideshow-container {
     padding-top: 60px;
-    width: 50%;
+    width: 70%;
     position: relative;
     margin: auto;
 }
@@ -130,4 +130,9 @@ div#img {
 
 .profile {
     align-content: center;
+}
+
+.profile-position {
+    float: left;
+    width: 10%;
 }

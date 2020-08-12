@@ -19,6 +19,14 @@
             <h3><?= h($profile->id) ?></h3>
             <table>
                 <tr>
+                    <th><?= __('Youtube') ?></th>
+                    <td><?= h($profile->youtube) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Twitch') ?></th>
+                    <td><?= h($profile->twitch) ?></td>
+                </tr>
+                <tr>
                     <th><?= __('Id') ?></th>
                     <td><?= $this->Number->format($profile->id) ?></td>
                 </tr>
